@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://your-backend-domain.com',
+        target: 'https://mern-auth-myapp.netlify.app',
         changeOrigin: true,
       }
     }    

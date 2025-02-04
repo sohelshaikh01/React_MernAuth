@@ -9,9 +9,9 @@
     "preview": "vite preview",
     "start": "node ./backend.server.js",
     "server": "nodemon ./backend/server.js",
-    "client": "npm run dev",
-    "dev": "vite",
-    "both": " concurrently \"npm run server\" \"npm run client\" "
+    "both": "npm run dev",
+    "client": "vite  ",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   }, 
 
   "devDependencies": {

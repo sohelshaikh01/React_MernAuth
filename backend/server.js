@@ -14,6 +14,7 @@ const app = express();
 
 app.use(express.json()); // body-parser middleware
 app.use(cors());         // For Allowing Api Request
+app.use(cors({ origin: '*' }));
 app.use(cookieParser()); // For Setting Cookies
 app.use(express.urlencoded({ extended: true }));
 

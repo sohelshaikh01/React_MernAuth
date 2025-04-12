@@ -15,7 +15,9 @@ const app = express();
 
 app.use(express.json()); // body-parser middleware
 app.use(cors());         // For Allowing Api Request
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: '*' })); // For Allowing Request from all origins
+app.use(cors({ origin: 'https://mern-auth-myapp.netlify.app', credentials: true }));
+
 app.use(cookieParser()); // For Setting Cookies
 app.use(express.urlencoded({ extended: true }));
 
@@ -25,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
     const __dirname = path.resolve();
     app.use(express.static(path.join(__dirname, "frontend/dist")))
 
-    app.get('*', () => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')))
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')))
 } 
 else {
     app.get('/', (req, res)=>  res.send("Server is ready"));

@@ -26,11 +26,13 @@ const registerUser = asyncHandler(async (req, res) => {
     });
 
     if(user) {
-        generateToken(res, user._id);
+        const token = generateToken(res, user._id);
         res.status(201).json({
+            message: "User Created Successfully",
             _id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            token
         })
     } // !token in res like others
     
@@ -39,7 +41,6 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('Invalid user data');
     }
 
-    res.status(200).json({message: "Register User"});
     
 });
 
@@ -57,11 +58,13 @@ const authUser = asyncHandler(async (req, res) => {
     // Password match
     if(user && (await user.matchPasswords(password))) {
 
-        generateToken(res, user._id);
+        const token = generateToken(res, user._id);
         res.status(201).json({
+            message: "User Authenticated Successfully",
             _id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            token
         });
     }
     else {
@@ -106,6 +109,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 const updateUserProfile = asyncHandler(async (req, res) => {
 
     const { name, email, password } = req.body;
+    
     const user = await User.findById(req.user._id);
     
     if (user) {
@@ -119,10 +123,10 @@ const updateUserProfile = asyncHandler(async (req, res) => {
         const updatedUser = await user.save();
 
         res.status(200).json({
+            message: "User profile updated successfully",
             _id: updatedUser._id,
             name: updatedUser.name,
             email: updatedUser.email,
-            message: "User profile updated successfully",
         },);
     }  
     else {

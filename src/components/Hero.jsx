@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import { logoutCreds } from "../slices/authSlice";
+
 import { toast } from "react-toastify";
 
 
@@ -11,7 +13,10 @@ const Hero = () => {
 
   const handleClick = () => {
     dispatch(logoutCreds());
-    toast.error("User Logged Out");
+    // Client-side logout logic
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    // window.location.href = '/login'; // Redirect to the login page
+    toast.success("User Logged Out");
   }
 
   return (
@@ -28,7 +33,7 @@ const Hero = () => {
 
         <div className="mt-4">
           <Link to="/login">
-            <button className="text-white font-xl bg-blue-500 px-3 py-1 rounded-md " > Sign In</button>
+            <button onClick={handleClick} className="text-white font-xl bg-blue-500 px-3 py-1 rounded-md " > Sign In</button>
           </Link>
             
           <Link to="/register" >

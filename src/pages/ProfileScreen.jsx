@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 // import FromContainer from "../components/FormContainer";
 import  { toast } from 'react-toastify';
 
-import Loader from "../components/Loader";
-// import FormContainer from '../components/FormContainer';
-
 import { setCredentials } from '../slices/authSlice';
 import { useUpdateUserMutation } from '../slices/userApiSlice';
+
+import Loader from "../components/Loader";
 
 const ProfileScreen = () => {
 
@@ -23,11 +22,13 @@ const ProfileScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const [ updateProfile, { isLoading }] = useUpdateUserMutation();
 
+
   useEffect(() => {
     setName(userInfo.name);
     setEmail(userInfo.email);
   }, [userInfo.name, userInfo.email]);
 
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     if(password !== confirmPassword) {
@@ -65,22 +66,22 @@ const ProfileScreen = () => {
 
           <div className="my-2 mt-5" >
             <label htmlFor="name" className='block' id="name"> Name</label>
-            <input type="text" className='rounded-md outline-gray-500 w-full p-1 mt-1 outline outline-1' placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input type="text" className='rounded-md w-full p-1 mt-1  outline-1 outline-gray-500 text-gray-800 border border-gray-500 pl-2 bg-white' placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)}/>
           </div>
 
           <div className="my-2 mt-2" >
             <label htmlFor="email" className='block' id="email"> Email Address</label>
-            <input type="email" className='rounded-md outline-gray-500 w-full p-1 mt-1 outline outline-1' placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="email" className='rounded-md w-full p-1 mt-1  outline-1 outline-gray-500 text-gray-800 border border-gray-500 pl-2 bg-white' placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
 
           <div className="my-2 mt-2" >
             <label htmlFor="password"  className='block'> Password</label>
-            <input type="password" autoComplete='password' className='rounded-md outline-gray-500 w-full p-1 mt-1 outline outline-1' placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input type="password" autoComplete='password' className='rounded-md w-full p-1 mt-1  outline-1 outline-gray-500 text-gray-800 border border-gray-500 pl-2 bg-white' placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
 
           <div className="my-2 mt-2" >
             <label htmlFor="confirmPassword"  className='block'> Confirm Password</label>
-            <input type="password" autoComplete='password' className='rounded-md outline-gray-500 w-full p-1 mt-1 outline outline-1' placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <input type="password" autoComplete='password' className='rounded-md w-full p-1 mt-1  outline-1 outline-gray-500 text-gray-800 border border-gray-500 pl-2 bg-white' placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
           </div>
 
           {isLoading && <Loader /> }

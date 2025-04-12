@@ -1,5 +1,4 @@
 
-
 const Notification = () => {
 
   // It was created in Place of Toastify

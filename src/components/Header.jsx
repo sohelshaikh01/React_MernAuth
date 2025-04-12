@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useLogoutMutation } from "../slices/userApiSlice";
-import { useNavigate } from "react-router-dom";
+
 import { logoutCreds } from '../slices/authSlice';
-import {toast } from "react-toastify";
+import { useLogoutMutation } from "../slices/userApiSlice";
+
+import { toast } from "react-toastify";
 
 const Header = () => {
 
@@ -16,6 +17,8 @@ const Header = () => {
 
 	const logoutHandler = async () => {
 		try {
+			localStorage.removeItem('token'); // Remove the token from localStorage
+			window.location.href = '/login'; // Redirect to the login page
 			await logoutApiCall().unwrap();
 			dispatch(logoutCreds());
 			toast.success("User Logout");
@@ -25,25 +28,16 @@ const Header = () => {
 		}
 	}
 
-
 	return (
-		<header className="bg-gray-700 w-full">
-				<nav className="bg-gray-700 w-full max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3" >
+
+		<header className="bg-gray-600 w-full">
+				<nav className="bg-gray-600 w-full max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3" >
 						<Link to="/"> <div className="text-white text-2xl font-semibold"> Mern Auth</div></Link>
 						
 						<div className=" ">
 								{ userInfo ? (
 									<>
-										{/* <select value={userInfo.name} id="username" className="flex flex-wrap items-center">
-											<Link to="/profile"> 
-												<option className="bg-blue-500 text-white py-1 px-3 rounded-md mr-4"> 
-													<span> Profile</span>
-												</option> 
-											</Link>
-											<option onClick={logoutHandler}className="list-none text-white">
-												Logout
-											</option>
-										</select> */}
+										{/* Code here to make below as dropdown */}
 
 										<div title={userInfo.name} id="username" className="flex flex-wrap items-center">
 											<li className="list-none bg-blue-700 text-white py-1 px-3 rounded-md mr-4">

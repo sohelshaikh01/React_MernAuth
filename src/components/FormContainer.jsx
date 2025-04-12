@@ -10,12 +10,12 @@ const FormContainer = ({ children }) => {
         { children}
       </div>
 
-        {/* <Row className="justify-content-md-center mt-5">
-            <Col xs={12} md={6} className="card p-5"> 
-                { chldren }
-            </Col>
-        </Row>
-       */}
+      {/* <Row className="justify-content-md-center mt-5">
+          <Col xs={12} md={6} className="card p-5"> 
+              { chldren }
+          </Col>
+      </Row>
+      */}
 
     </div>
   )

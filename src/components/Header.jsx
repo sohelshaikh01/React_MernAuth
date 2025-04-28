@@ -16,6 +16,7 @@ const Header = () => {
 	const  [logoutApiCall] = useLogoutMutation();
 
 	const logoutHandler = async () => {
+		
 		try {
 			localStorage.removeItem('token'); // Remove the token from localStorage
 			window.location.href = '/login'; // Redirect to the login page
@@ -48,7 +49,7 @@ const Header = () => {
 													<span> Profile</span>
 												</button> 
 											</Link>
-											<li onClick={logoutHandler}className="list-none bg-gray-400 py-1 px-3 rounded-md text-white">
+											<li onClick={logoutHandler} className="list-none bg-gray-400 py-1 px-3 rounded-md text-white">
 												Logout
 											</li>
 										</div>

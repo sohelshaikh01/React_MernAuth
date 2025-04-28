@@ -12,6 +12,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 body: data 
             }),
         }),
+        
         register: builder.mutation({ 
             query: (data) => ({
                 url: `${USERS_URL}`,
@@ -19,12 +20,14 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 body: data 
             }),
         }),
+
         logout: builder.mutation({ 
             query: () => ({
                 url: `${USERS_URL}/logout`,
                 method: 'POST', 
             }),
         }),
+
         updateUser: builder.mutation({ 
             query: (data) => {
                 // const token = localStorage.getItem('token'); // Or get it from Redux state

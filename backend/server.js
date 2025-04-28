@@ -14,9 +14,7 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // body-parser middleware
-app.use(cors());         // For Allowing Api Request
 app.use(cors({ origin: '*' })); // For Allowing Request from all origins
-app.use(cors({ origin: 'https://mern-auth-myapp.netlify.app', credentials: true }));
 
 app.use(cookieParser()); // For Setting Cookies
 app.use(express.urlencoded({ extended: true }));

@@ -121,8 +121,11 @@ By completing this project, you will understand:
 ✅ How to handle protected routes in React  
 
 ---
+## Home Page
 ![Home Page](./public/home-page.jpg)
+## Login Page
 ![SignIn Page](./public/signin-page.jpg)
+## Update Page
 ![Update Page](./public/update-page.jpg)
 
 ## 📝 License  

@@ -122,8 +122,8 @@ By completing this project, you will understand:
 
 ---
 ![Home Page](./public/home-page.jpg)
-![SignIn Page](./signin-page.jpg)
-![Update Page](./update-page.jpg)
+![SignIn Page](./public/signin-page.jpg)
+![Update Page](./public/update-page.jpg)
 
 ## 📝 License  
 This project is open-source and available under the MIT License. 

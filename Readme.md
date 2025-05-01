@@ -33,8 +33,9 @@ cd backend
 npm install
 ```
 
-#### Configure Environment Variables  
-Create a `.env` file in the `backend` directory and add the following:  
+#### Configure Environment Variables
+  
+Create a `.env` file in the `backend` directory and add the following:
 ```
 PORT=5000
 MONGO_URI=your_mongodb_uri
@@ -45,7 +46,7 @@ JWT_SECRET=your_jwt_secret
 ```bash
 npm run server
 ```
-The backend will run at `http://localhost:5000`.
+The backend will run at `https://react-mern-auth-backend.onrender.com:5000`.
 
 ---
 
@@ -63,7 +64,7 @@ npm install
 ```bash
 npm run both
 ```
-The frontend will run at `http://localhost:3000`.
+The frontend will run at `https://mern-auth-myapp.netlify.app`.
 
 ---
 
@@ -80,9 +81,6 @@ The frontend will run at `http://localhost:3000`.
 ```
 mern-auth-project/
 │
-├── backend/
-│
-├── frontend/
 │
 ├── public/             # Static assets  
 ├── .env                # Environment variables  
@@ -123,7 +121,9 @@ By completing this project, you will understand:
 ✅ How to handle protected routes in React  
 
 ---
-![Main Page](./frontend/public/Home_Page.jpg)
+![Home Page](./public/home-page.jpg)
+![SignIn Page](./signin-page.jpg)
+![Update Page](./update-page.jpg)
 
 ## 📝 License  
 This project is open-source and available under the MIT License. 
